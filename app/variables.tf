@@ -10,5 +10,5 @@ variable "zone_dispo" {
 
 variable "credentials" {
   type = string 
-  default = "/d/AJC-FORMATION/Terraform/credentials"
+  default = "D:/AJC-FORMATION/Terraform/credentials"
 }
