@@ -1,12 +1,16 @@
-data "aws_ami" "my_ami" {
+data "aws_ami" "app_ami" {
   most_recent = true
-  owners      = ["${var.id_compte_ubuntu}"]
-
+  owners = ["099720109477"]
   filter {
-    name   = "name"
-    values = ["${var.nom_ubuntu_ami}"]
+      name   = "name"
+      values = ["ubuntu/images/hvm-ssd/ubuntu-bionic*"]
+    }
+  filter {
+      name   = "virtualization-type"
+      values = ["hvm"]
   }
 }
+
 
 resource "aws_instance" "my_ec2" {
   ami               = data.aws_ami.my_ami.id
